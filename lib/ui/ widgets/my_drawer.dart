@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/layout/home-screen.dart';
-import 'package:quran_app/screens/setting_screen.dart';
-import 'package:quran_app/shared/styles/colors.dart';
-import 'package:quran_app/shared/styles/string-app.dart';
+import 'package:quran_app/ui/views/home/home_view.dart';
+import 'package:quran_app/ui/views/setting/setting_View.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../shared/constant/constant.dart';
+import '../../constants/constant/constant.dart';
+import '../../constants/styles/colors.dart';
+import '../../constants/styles/string-app.dart';
+
+// ignore: non_constant_identifier_names
 Uri LinkedIn = Uri.parse('https://www.linkedin.com/in/abdulrahman-ramadan-5a5700247/');
 
 class MyDrawer extends StatelessWidget {
@@ -15,7 +17,12 @@ class MyDrawer extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
+    // var width=MediaQuery.of(context).size.width;
+    // var height=MediaQuery.of(context).size.height;
+
+
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -48,7 +55,7 @@ class MyDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const SettingsScreen()));
+                  MaterialPageRoute(builder: (context) => const SettingsView()));
             },
           ),
 
@@ -56,14 +63,7 @@ class MyDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.share,
             ),
-            title: const Text(
-              ' مشاركه التطبيق',
-              style: TextStyle(
-                fontSize: 20,
-                fontFamily: 'Tajawal',
-              ),
-
-            ),
+            title: TextApp.share,
             onTap: () {
               Share.share('''*Quran app*\n
             u can develop it from my github github.com/itAbdulrahmanRamadan ''');
@@ -74,13 +74,7 @@ class MyDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.rate_review,
             ),
-            title: const Text(
-              'حسابي',
-              style: TextStyle(
-                fontSize: 20,
-                fontFamily: 'Tajawal',
-              ),
-            ),
+            title: TextApp.account,
             onTap: () async {
               if (!await launchUrl(quranAppUrl,
                   mode: LaunchMode.externalApplication)) {
@@ -92,30 +86,18 @@ class MyDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.account_balance,
             ),
-            title: const Text(
-              'الصفحه الرئيسيه',
-              style: TextStyle(
-                fontSize: 20,
-                fontFamily: 'Tajawal',
-              ),
-            ),
+            title: TextApp.homeView,
             onTap: ()  {
               Navigator.pop(context);
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) =>  HomeScreen()));
+                  MaterialPageRoute(builder: (context) =>  const HomeView()));
             },
           ),
           ListTile(
             leading: const Icon(
               Icons.account_box_outlined,
             ),
-            title: const Text(
-              'تواصل معنا',
-              style: TextStyle(
-                fontSize: 20,
-                fontFamily: 'Tajawal',
-              ),
-            ),
+            title:TextApp.connectUs,
             onTap: () async {
               if (!await launchUrl(LinkedIn,
                   mode: LaunchMode.externalApplication)) {

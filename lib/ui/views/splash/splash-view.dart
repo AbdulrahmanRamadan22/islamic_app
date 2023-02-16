@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/shared/styles/colors.dart';
-import 'package:quran_app/shared/styles/string-app.dart';
 
-import '../layout/home-screen.dart';
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+
+import '../../../constants/styles/colors.dart';
+import '../../../constants/styles/string-app.dart';
+
+class SplashView extends StatefulWidget {
+  const SplashView({Key? key}) : super(key: key);
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  // ignore: library_private_types_in_public_api
+  _SplashViewState createState() => _SplashViewState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashViewState extends State<SplashView> {
 
   @override
   void initState() {

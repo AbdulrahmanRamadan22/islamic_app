@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/shared/styles/colors.dart';
+
+import 'colors.dart';
+
 
 abstract class TextApp {
 
@@ -20,6 +22,7 @@ abstract class TextApp {
     fontFamily: 'Tajawal',
   ),
 );
+
   static const Text  setting=Text(
     'الإعدادات',
     style: TextStyle(
@@ -29,33 +32,59 @@ abstract class TextApp {
   );
 
   static const Text   share=Text(
-    'الإعدادات',
+    'مشاركه التطبيق',
     style: TextStyle(
       fontSize: 20,
       fontFamily: 'Tajawal',
     ),
   );
   static const Text  account=Text(
-    'الإعدادات',
+    'حسابي',
     style: TextStyle(
       fontSize: 20,
       fontFamily: 'Tajawal',
     ),
   );
-  static const Text  home=Text(
-    'الإعدادات',
+  static const Text  homeView=Text(
+    'الصفحه الرئيسيه',
     style: TextStyle(
       fontSize: 20,
       fontFamily: 'Tajawal',
     ),
   );
   static const Text   connectUs=Text(
-    'الإعدادات',
+    'تواصل معنا',
     style: TextStyle(
       fontSize: 20,
       fontFamily: 'Tajawal',
     ),
   );
+
+
+  static const Text home=  Text(
+    'الرئيسة',
+    style: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Tajawal',
+
+    ),
+  );
+
+  static const aliarbaeaynAlnawawia =  Text(
+    'الأربعون النوويه',
+    style: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Tajawal',
+
+    ),
+  );
+
+
+
+
+
 
 
 

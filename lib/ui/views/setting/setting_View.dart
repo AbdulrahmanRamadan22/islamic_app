@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/shared/styles/colors.dart';
 
-import '../shared/constant/constant.dart';
 
-class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+import '../../../constants/constant/constant.dart';
+import '../../../constants/styles/colors.dart';
+
+class SettingsView extends StatefulWidget {
+  const SettingsView({Key? key}) : super(key: key);
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
+  State<SettingsView> createState() => _SettingsViewState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class _SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -33,9 +34,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                     'حجم خط وضع الآيات:',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      fontFamily: 'Tajawal'
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontFamily: 'Tajawal'
                     ),
                   ),
                   Slider(
@@ -67,9 +68,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                     'حجم خط وضع المصحف:',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      fontFamily: 'Tajawal'
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontFamily: 'Tajawal'
                     ),
                   ),
                   Slider(
@@ -102,45 +103,45 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:  ColorApp.primary,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:  ColorApp.primary,
 
+                            ),
+
+                            onPressed: (){
+                              setState(() {
+                                arabicFontSize=28;
+                                mushafFontSize=40;
+                              });
+                              saveSetting();
+                            },
+                            child: const Text(
+                              'إعادة ضبط',
+                              style: TextStyle(
+                                fontSize:20,
+                                fontFamily: 'Tajawal',
                               ),
 
-                              onPressed: (){
-                                setState(() {
-                                  arabicFontSize=28;
-                                  mushafFontSize=40;
-                                });
-                                saveSetting();
-                              },
-                              child: const Text(
-                                  'إعادة ضبط',
-                                style: TextStyle(
-                                    fontSize:20,
-                                  fontFamily: 'Tajawal',
-                                ),
-
-                              ),),
+                            ),),
                         ),
                         const SizedBox(width: 20,),
                         Expanded(
                           child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:  ColorApp.primary,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:  ColorApp.primary,
 
+                            ),
+                            onPressed: (){
+                              saveSetting();
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text(
+                              'حفظ',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontFamily:'Tajawal',
                               ),
-                              onPressed: (){
-                                saveSetting();
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text(
-                                  'حفظ',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                  fontFamily:'Tajawal',
-                                ),
-                              ),
+                            ),
                           ),
                         ),
                       ],

@@ -1,18 +1,18 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:quran_app/shared/models/section_detail_model.dart';
+import '../../../models/section_detail_model.dart';
 
-class SectionDetailScreen extends StatefulWidget {
+class SectionDetailView extends StatefulWidget {
   final String name;
-  const SectionDetailScreen({Key? key, required this.name}) : super(key: key);
+  const SectionDetailView({Key? key, required this.name}) : super(key: key);
 
   @override
-  State<SectionDetailScreen> createState() => _SectionDetailScreenState();
+  State<SectionDetailView> createState() => _SectionDetailViewState();
 }
 
 
-class _SectionDetailScreenState extends State<SectionDetailScreen> {
+class _SectionDetailViewState extends State<SectionDetailView> {
   List<SectionDetailModel> sectionDetails = [];
 
   @override
@@ -25,7 +25,7 @@ class _SectionDetailScreenState extends State<SectionDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.name}'),
+        title: Text(widget.name),
       ),
 
       body: ListView.separated(
@@ -55,10 +55,10 @@ class _SectionDetailScreenState extends State<SectionDetailScreen> {
         .then((data) {
       var response = json.decode(data);
       response.forEach((section) {
-        SectionDetailModel _sectionDetail = SectionDetailModel.fromJson(section);
+        SectionDetailModel sectionDetail = SectionDetailModel.fromJson(section);
 
-        if(_sectionDetail.section==widget.name){
-          sectionDetails.add(_sectionDetail);
+        if(sectionDetail.section==widget.name){
+          sectionDetails.add(sectionDetail);
         }
 
 

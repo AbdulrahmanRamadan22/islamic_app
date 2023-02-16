@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/shared/styles/colors.dart';
+import 'package:quran_app/ui/views/setting/setting_View.dart';
+
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../screens/setting_screen.dart';
-import '../components/componets.dart';
+import '../../ui/ widgets/return_basmala.dart';
 import 'constant.dart';
 
 final ItemScrollController itemScrollController = ItemScrollController();
@@ -60,7 +60,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const SettingsScreen()));
+                      MaterialPageRoute(builder: (context) => const SettingsView()));
                 },
                 icon: const Icon(
                   Icons.settings,
@@ -161,6 +161,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
 
 
 
+  // ignore: non_constant_identifier_names
   SafeArea SingleSuraBuilder(LenghtOfSura) {
 
     String fullSura = '';
@@ -197,7 +198,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
                     children: [
                       (index != 0) || (widget.sura == 0) || (widget.sura == 8)
                           ? const Text('')
-                          : ReturnBasmala(),
+                          : returnBasmala(),
                       Container(
                         color: const Color.fromARGB(255, 253, 251, 240),
                         child: PopupMenuButton(
@@ -267,7 +268,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
                           children: [
 
                                 widget.sura + 1 != 1 && widget.sura + 1 != 9
-                                ? ReturnBasmala()
+                                ? returnBasmala()
                                 : const Text(''),
                             Padding(
                               padding: const EdgeInsets.all(8.0),

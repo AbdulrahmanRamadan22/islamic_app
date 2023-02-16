@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/shared/constant/surah_builder.dart';
-import '../shared/constant/arabic_sura_number.dart';
-import '../shared/constant/constant.dart';
-import '../shared/styles/colors.dart';
-import 'drawer.dart';
 
-class AlQuranScreen extends StatefulWidget {
-  const AlQuranScreen({Key? key}) : super(key: key);
+
+import '../../ widgets/arabic_sura_number.dart';
+import '../../ widgets/my_drawer.dart';
+import '../../../constants/constant/constant.dart';
+import '../../../constants/constant/surah_builder.dart';
+import '../../../constants/styles/colors.dart';
+
+
+class AlQuranView extends StatefulWidget {
+  const AlQuranView({Key? key}) : super(key: key);
 
   @override
-  State<AlQuranScreen> createState() => _AlQuranScreenState();
+  State<AlQuranView> createState() => _AlQuranViewState();
 }
 
-class _AlQuranScreenState extends State<AlQuranScreen> {
+class _AlQuranViewState extends State<AlQuranView> {
 
 
   @override
@@ -95,7 +98,7 @@ class _AlQuranScreenState extends State<AlQuranScreen> {
               child: TextButton(
                 child: Row(
                   children: [
-                    ArabicSuraNumber(i: i),
+                    arabicSuraNumber(i: i),
                     const SizedBox(
                       width: 5,
                     ),

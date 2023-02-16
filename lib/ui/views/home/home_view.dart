@@ -2,22 +2,29 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:quran_app/shared/styles/colors.dart';
+import 'package:quran_app/constants/styles/string-app.dart';
+import 'package:quran_app/ui/views/alquran/alquran_view.dart';
+import 'package:quran_app/ui/views/azkar/azkar_view.dart';
 
-import '../screens/alquran.dart';
-import '../screens/azkar/azkar-screen.dart';
-import '../screens/drawer.dart';
-import '../shared/components/componets.dart';
+import '../../ widgets/category.dart';
+import '../../ widgets/container_app_bar.dart';
+import '../../ widgets/my_drawer.dart';
+import '../../../constants/styles/colors.dart';
+import '../aliarbaeayn_alnawawia/aliarbaeayn_alnawawia.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeView extends StatelessWidget {
 
  static const Color background= Color(0xffdebc9b);
 
-  const HomeScreen({super.key});
+  const HomeView({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    double width=MediaQuery.of(context).size.width;
+    double height=MediaQuery.of(context).size.width;
+
+
     return Scaffold(
       // backgroundColor: Colors.green,
 
@@ -26,27 +33,16 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ColorApp.primary,
        elevation: 0.0,
-
         centerTitle: true,
-        title: const Text(
-          'الرئيسة',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Tajawal',
-
-          ),
-        ),
-
-
+        title: TextApp.home,
       ),
-
 
       body: ListView(
 
         children: [
 
-          containerAppbar(
+          containerAppBar(
+            height: height*0.30,
               text:
               '''
               يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعِي إِلَى رَبِّكِ رَاضِيَةً
@@ -58,26 +54,29 @@ class HomeScreen extends StatelessWidget {
 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            textDirection: TextDirection.rtl,
             children:
           [
 
-            category(
-                text: 'أذكار المسلم',
-                icon:'Azkar.png',
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Azkar()));
-                }
-            ),
 
             category(
 
                 text: 'القرآن الكريم',
                 icon:'quran.png',
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const AlQuranScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const AlQuranView()));
 
                 }
             ),
+
+            category(
+                text: 'أذكار المسلم',
+                icon:'Azkar.png',
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const AzkarView()));
+                }
+            ),
+
 
 
           ],
@@ -85,16 +84,21 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 20,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            textDirection: TextDirection.rtl,
 
             children: [
 
               category(
-                  text: 'hhh',
-                  icon:'quran.png',
-                  onTap: (){}
+                  text: 'الأربعون النووية',
+                  icon:'aliarbaeaynalnawawia.png',
+                  onTap: (){
+
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                    const AliarbaeaynAlnawawia()));
+
+                  }
 
               ),
-
 
 
 
@@ -106,9 +110,10 @@ class HomeScreen extends StatelessWidget {
 
             ],
           ),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            textDirection: TextDirection.rtl,
 
             children: [
               category(

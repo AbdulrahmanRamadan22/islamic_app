@@ -1,20 +1,21 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:quran_app/screens/azkar/section-detail-screen.dart';
-import 'package:quran_app/shared/components/componets.dart';
+import 'package:quran_app/ui/views/azkar/section_detail_view.dart';
 
-import '../../shared/models/section-model.dart';
-import '../../shared/styles/colors.dart';
+import '../../ widgets/container_app_bar.dart';
+import '../../../constants/styles/colors.dart';
+import '../../../models/section-model.dart';
 
-class Azkar extends StatefulWidget {
-  const Azkar({Key? key}) : super(key: key);
+
+class AzkarView extends StatefulWidget {
+  const AzkarView({Key? key}) : super(key: key);
 
   @override
-  State<Azkar> createState() => _AzkarState();
+  State<AzkarView> createState() => _AzkarViewState();
 }
 
-class _AzkarState extends State<Azkar> {
+class _AzkarViewState extends State<AzkarView> {
   List<SectionModel> sections = [];
 
   @override
@@ -46,7 +47,7 @@ class _AzkarState extends State<Azkar> {
 
         children: [
 
-          containerAppbar(text:
+          containerAppBar(text:
           '''
               الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ ۗ
               أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ
@@ -83,7 +84,7 @@ class _AzkarState extends State<Azkar> {
     required SectionModel model,
   })=> Expanded(
     child: InkWell(
-      onTap: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (context) => SectionDetailScreen(name: model.name!,))),
+      onTap: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (context) => SectionDetailView(name: model.name!,))),
 
 
       child: Container(
@@ -93,7 +94,7 @@ class _AzkarState extends State<Azkar> {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius:BorderRadius.circular(10) ,
-          gradient:  const LinearGradient(
+          gradient:   const LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/layout/home-screen.dart';
-import 'package:quran_app/screens/azkar/azkar-screen.dart';
-import 'package:quran_app/screens/splash-screen.dart';
-import 'package:quran_app/shared/styles/colors.dart';
-
-import 'shared/constant/constant.dart';
-import 'screens/alquran.dart';
+import 'package:flutter/services.dart';
+import 'package:quran_app/ui/views/home/home_view.dart';
+import 'package:quran_app/ui/views/splash/splash-view.dart';
 
 import 'package:device_preview/device_preview.dart';
+
+import 'constants/constant/constant.dart';
+import 'constants/styles/colors.dart';
+
 void main() => runApp(
   DevicePreview(
-    builder: (context) => MyApp(), // Wrap your app
+    builder: (context) => const MyApp(), // Wrap your app
   ),
 );
 
@@ -40,9 +40,16 @@ class _MyAppState extends State<MyApp> {
   }
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.light,
+      statusBarColor: Colors.transparent,
+
+    ));
+
     return MaterialApp(
      routes: {
-      "home" :(context) => const HomeScreen(),
+      "home" :(context) => const HomeView(),
 
      },
       // useInheritedMediaQuery: true,
@@ -52,22 +59,21 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         backgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
-          iconTheme: const IconThemeData(color:Colors.white),
-
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color:Colors.white),
           backgroundColor: ColorApp.primary,
           centerTitle: true,
           titleTextStyle: TextStyle(
             color:Colors.white,
             fontSize: 24,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
 
           ),
 
         ),
 
       ),
-      home: SplashScreen(),
+      home: const SplashView(),
     );
   }
 }
