@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/constants/styles/string-app.dart';
 import 'package:quran_app/ui/views/alquran/alquran_view.dart';
-import 'package:quran_app/ui/views/azkar/azkar_view.dart';
+import 'package:quran_app/ui/views/azkar/azkar_section_view.dart';
 
 import '../../ widgets/category.dart';
 import '../../ widgets/container_app_bar.dart';

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import '../../../models/section_detail_model.dart';
+import '../../../models/azkar_section_detail_model.dart';
 
 class SectionDetailView extends StatefulWidget {
   final String name;
@@ -13,7 +13,7 @@ class SectionDetailView extends StatefulWidget {
 
 
 class _SectionDetailViewState extends State<SectionDetailView> {
-  List<SectionDetailModel> sectionDetails = [];
+  List< AzkarSectionDetailModel> sectionDetails = [];
 
   @override
   void initState() {
@@ -55,7 +55,7 @@ class _SectionDetailViewState extends State<SectionDetailView> {
         .then((data) {
       var response = json.decode(data);
       response.forEach((section) {
-        SectionDetailModel sectionDetail = SectionDetailModel.fromJson(section);
+        AzkarSectionDetailModel sectionDetail =  AzkarSectionDetailModel.fromJson(section);
 
         if(sectionDetail.section==widget.name){
           sectionDetails.add(sectionDetail);

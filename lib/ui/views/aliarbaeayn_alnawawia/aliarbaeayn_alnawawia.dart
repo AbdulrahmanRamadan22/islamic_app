@@ -3,7 +3,7 @@ import 'package:quran_app/constants/styles/string-app.dart';
 
 import '../../ widgets/container_app_bar.dart';
 import '../../ widgets/my_card.dart';
-import '../../ widgets/my_drawer.dart';
+import 'hadithe_section_view.dart';
 
 class AliarbaeaynAlnawawia extends StatelessWidget {
   const AliarbaeaynAlnawawia({Key? key}) : super(key: key);
@@ -41,7 +41,10 @@ class AliarbaeaynAlnawawia extends StatelessWidget {
             ),
             MyCard(
               text: "الأحاديث الأربعون",
-              onTap: (){},
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const HaditheSection()));
+
+              },
               height: height*0.30,
 
             ),

@@ -8,6 +8,9 @@ static const Color teal=  Colors.teal;
 // static const Color lightGray=  Color(0xffd3d3d3);
 static const Color white=  Colors.white;
 
+  static const Color amber=  Colors.amber;
+
+
 
 
 

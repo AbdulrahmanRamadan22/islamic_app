@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:quran_app/ui/views/azkar/section_detail_view.dart';
 
 import '../../ widgets/container_app_bar.dart';
 import '../../../constants/styles/colors.dart';
-import '../../../models/section-model.dart';
+import '../../../models/azkar_section-model.dart';
+import 'azkar_detail_view.dart';
 
 
 class AzkarView extends StatefulWidget {
@@ -16,7 +16,7 @@ class AzkarView extends StatefulWidget {
 }
 
 class _AzkarViewState extends State<AzkarView> {
-  List<SectionModel> sections = [];
+  List< AzkarSectionModel> sections = [];
 
   @override
   void initState() {
@@ -79,9 +79,9 @@ class _AzkarViewState extends State<AzkarView> {
     );
   }
 
-  Widget  buildSectionItem({
+  Widget buildSectionItem({
 
-    required SectionModel model,
+    required  AzkarSectionModel model,
   })=> Expanded(
     child: InkWell(
       onTap: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (context) => SectionDetailView(name: model.name!,))),
@@ -136,7 +136,7 @@ class _AzkarViewState extends State<AzkarView> {
         .then((data) {
       var response = json.decode(data);
       response.forEach((section) {
-        SectionModel _section = SectionModel.fromJson(section);
+        AzkarSectionModel _section =  AzkarSectionModel.fromJson(section);
         sections.add(_section);
         // print(_section.name);
       });

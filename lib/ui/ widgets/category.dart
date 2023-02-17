@@ -29,7 +29,7 @@ Widget category({
 
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          color: ColorApp.primary,
+        color: ColorApp.primary
 
         ),
 

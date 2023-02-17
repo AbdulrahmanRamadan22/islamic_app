@@ -82,6 +82,16 @@ abstract class TextApp {
   );
 
 
+  static const aliarbaeaynHadithe =  Text(
+    'الأحاديث الاربعون',
+    style: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Tajawal',
+
+    ),
+  );
+
 
 
 

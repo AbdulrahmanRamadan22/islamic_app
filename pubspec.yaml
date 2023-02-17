@@ -72,6 +72,8 @@ flutter:
     - assets/icons/
     - assets/json/quran/
     - assets/json/azkar/
+    - assets/json/hadithe/
+
 
   #   - images/a_dot_ham.jpeg
 
